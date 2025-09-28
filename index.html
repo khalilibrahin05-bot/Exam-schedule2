@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Schedule Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+      }
+      .print-only {
+        display: none;
+      }
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        header, .no-print {
+          display: none !important;
+        }
+        .print-only {
+          display: block !important;
+        }
+        main {
+          padding: 0;
+          margin: 0;
+        }
+        .overflow-x-auto {
+          overflow: visible;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 10px; /* Smaller font for printing */
+        }
+        th, td {
+          border: 1px solid #ddd;
+          padding: 4px; /* Reduced padding for printing */
+        }
+        .rounded-xl, .shadow-lg {
+          border-radius: 0;
+          box-shadow: none;
+        }
+        select, input[type="number"], input[type="date"] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: none;
+          background: transparent;
+          padding: 0;
+          font-size: inherit; /* Inherit smaller font */
+        }
+        .bg-blue-50 {
+            background-color: #EFF6FF !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-50">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
